@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>太阳与投影</title>
+<style>
+	*{margin:0; padding:0;}
+	#sun{width:80px; height:80px; background:#F43C22; border-radius:50%; position:absolute; top:0; left:0; box-shadow:0 0 50px #D00202;}
+	#text{height:70px; margin:200px auto; font-size:50px; color:black;text-align:center; line-height:70px;}
+</style>
+<script>
+	window.onload=function(){
+		var oSun=document.getElementById('sun');
+		var oText=document.getElementById('text');
+		document.onmousemove=function(ev){
+			oSun.style.left=ev.pageX-oSun.offsetWidth/2+'px';
+			oSun.style.top=ev.pageY-oSun.offsetHeight/2+'px';
+			var x=(oText.offsetLeft+oText.offsetWidth/2)-(oSun.offsetLeft+oSun.offsetWidth/2);
+			var y=(oText.offsetTop+oText.offsetHeight/2)-(oSun.offsetTop+oSun.offsetHeight/2);
+			var dis=Math.sqrt(x*x+y*y);
+			oText.style.textShadow=x/3+'px '+y/3+'px '+dis/10+'px #000';
+		};
+	};
+</script>
+</head>
+
+<body>
+<div id="sun"></div>
+<div id="text">veryone is number!</div>
+</body>
+</html>

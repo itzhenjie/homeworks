@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>homework1</title>
+<style>
+	*{margin:0; padding:0;}
+	@keyframes test{
+		from{left:0;}
+		to{left:-100px;}
+	}
+	div,div span{ margin-left:20px;}
+	#box{width:500px; height:30px; position:relative; border:1px solid #ccc; margin:200px auto; overflow:hidden;}
+	#box div{width:600px; height:30px; position:absolute; top:0; left:0; background:-webkit-repeating-linear-gradient(45deg,red 0,red 10px, #fff 10px,#fff 20px); -webkit-animation:test 1s linear infinite;}
+</style>
+<script>
+	window.onload=function(){
+		var oBtn1=document.getElementById('btn1');
+		var oBtn2=document.getElementById('btn2');
+		var oCent=document.getElementById('cent');
+		var oC1=document.getElementById('color1');
+		var oC2=document.getElementById('color2');
+		oBtn1.onchange=function(){
+			oC1.innerHTML=oBtn1.value;
+			oCent.style.background='-webkit-repeating-linear-gradient(45deg,'+oBtn1.value+' 0,'+oBtn1.value+' 10px, '+oBtn2.value+' 10px,'+oBtn2.value+' 20px)';
+		};
+		oBtn2.onchange=function(){
+			oC2.innerHTML=oBtn2.value;
+			oCent.style.background='-webkit-repeating-linear-gradient(45deg,'+oBtn1.value+' 0,'+oBtn1.value+' 10px, '+oBtn2.value+' 10px,'+oBtn2.value+' 20px)';
+		};
+	};
+</script>
+</head>
+
+<body>
+颜色：<input type="color" id="btn1">&nbsp    <input type="color" id="btn2">
+ <div><span id="color1">#000000</span><span id="color2">#000000</span></div>
+ <div id="box"><div id="cent"></div></div>
+</body>
+</html>
